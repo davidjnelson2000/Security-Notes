@@ -71,9 +71,13 @@ Example: traceroute www.virinia.edu
 
 The command probes each router with three packets and then records the time it takes for each packet to reach the router.
 
-DATA LINK LAYER - Responsible for communication between NICs. It also detects errors that might have occurred during transmission. (Example: wifi signal may become corrupted during transmission due to interference
+DATA LINK LAYER - Responsible for communication between NICs. It also detects errors that might have occurred during transmission. 
+(Example: wifi signal may become corrupted during transmission due to interference)
 from other radio signals.
 
 Data link layer protocol:
 media access control (MAC) [Responsible for sharing the transmission medium (example - radio spectrum or wires)]
 carrier sense multiple access (MAC PROTOCOL) [Listens for WIFI signals and only transmits when no one else it]
+
+PHYSICAL LAYER - Responsible for converting the ones and zeros that represent data in a computer into a transmittable form. 
+(Examples of transmitting pulses of light, radio or electric signals, or sound)

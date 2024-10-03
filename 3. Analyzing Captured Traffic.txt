@@ -60,4 +60,4 @@ Transport layer protocols:
 transmission control protocol (TCP) [Provides a guarentee that packets reach their destination]
 user datagram protocol (UDP) [Less complex and provides no guarentees it arrives]
 
-
+NETWORK LAYER - Responsible for controlling how packets flow between routers in the network.

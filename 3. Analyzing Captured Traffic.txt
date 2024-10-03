@@ -44,3 +44,20 @@ a. Composing and sending an email (Happens in the application layer)
 b. The message associated with the email are then placed in transport packets, but does not read or alter the email in any way. It labels the packets (Transport Layer)
 c. Then goes to the network layer packets, then data layer packets, and is finally transmitted.
 NOTE: Each layer makes decisions without depending on the information from a previous layer.
+
+APPLICATION LAYER - Responsible for communication between applications. (example: Firefox and the University of Virginia Web Servers)
+
+Application layer protocols:
+hyper text transfer protocol (HTTP) [Sends web pages to browsers]
+file transfer protocol (FTP) [Uploads files to a Server]
+domain name system (DNS) 
+TELEtype NETwork (Telnet)
+Simple mail transfer protocol (SMTP)
+
+TRANSPORT LAYER - Responsible for managing communication between processes communicating over the internet.
+
+Transport layer protocols:
+transmission control protocol (TCP) [Provides a guarentee that packets reach their destination]
+user datagram protocol (UDP) [Less complex and provides no guarentees it arrives]
+
+

@@ -60,4 +60,20 @@ Transport layer protocols:
 transmission control protocol (TCP) [Provides a guarentee that packets reach their destination]
 user datagram protocol (UDP) [Less complex and provides no guarentees it arrives]
 
-NETWORK LAYER - Responsible for controlling how packets flow between routers in the network.
+NETWORK LAYER - Responsible for controlling how packets flow between routers in the network. IP addresses are implemented at this layer.
+
+You can see every route that your packets pass through by using the [traceroute] tool
+
+Network layer protocols:
+internet control message protocol (ICMP) [traceroute uses ICMP to construct packets that probe the network to learn the path the packet takes] 
+
+Example: traceroute www.virinia.edu
+
+The command probes each router with three packets and then records the time it takes for each packet to reach the router.
+
+DATA LINK LAYER - Responsible for communication between NICs. It also detects errors that might have occurred during transmission. (Example: wifi signal may become corrupted during transmission due to interference
+from other radio signals.
+
+Data link layer protocol:
+media access control (MAC) [Responsible for sharing the transmission medium (example - radio spectrum or wires)]
+carrier sense multiple access (MAC PROTOCOL) [Listens for WIFI signals and only transmits when no one else it]

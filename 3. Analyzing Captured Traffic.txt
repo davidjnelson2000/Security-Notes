@@ -39,3 +39,8 @@ The layers are independent and its actions are not effected by other layers.
 
 ENCAPSULATION - Protocol stack that ensures they are independent and treat layers above as generic data.
 
+Example:
+a. Composing and sending an email (Happens in the application layer)
+b. The message associated with the email are then placed in transport packets, but does not read or alter the email in any way. It labels the packets (Transport Layer)
+c. Then goes to the network layer packets, then data layer packets, and is finally transmitted.
+NOTE: Each layer makes decisions without depending on the information from a previous layer.

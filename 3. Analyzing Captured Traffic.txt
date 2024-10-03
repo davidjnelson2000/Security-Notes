@@ -1,0 +1,41 @@
+Analyzing Captured Traffic
+
+PROTOCOL - Set of rules that governs the communication between systems. Determines how information is 
+laid out in a packet
+
+When searching for a website it uses the Domain Name System (DNS) protocol to communicate with the 
+DNS Server:
+
+1. Starts by sending a DNS Query Requesting the IP of the website (https://cs.virginia.edu/).
+2. DNS server will then respond with the IP address.
+
+Example: Kali asks Google DNS and then Google DNS tells Kali the IP
+
+HEADER FIELDS in a packet tell you who it is from and where it is going.
+These header fields contain ip addresses and source and destination port numbers.
+
+Port numbers on a machine are all unique and no two processes on one machine can be the same.
+
+PROCESS - abstraction that represents a running program. When a process wants to send or receive
+information through the network, the operating system assigns that process a port number
+
+Example: Packets for a web server arrive at your ip address on port 443
+
+PORTS - Expose internal processes to the network. Allow multiple processes on you computer to 
+communicate with the internet at the same time.
+
+When your operating system receives a packet it examines the port number to decide whether the
+packet is for the browser or messenger. Ports open up oppurtunities for attacks. Attackers can
+scan machines for open ports. When a machine has open ports they will try to infect the machine
+with malicious packets.
+
+FIVE-LAYER INTERNET PROTOCOL STACK
+
+Application -> Transport -> Network -> Data -> Physical ------->sent
+Physical -> Data -> Network -> Transport -> Application
+
+Each layer is responsible for managing the communication between specific components in the network.
+The layers are independent and its actions are not effected by other layers.
+
+ENCAPSULATION - Protocol stack that ensures they are independent and treat layers above as generic data.
+

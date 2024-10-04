@@ -91,3 +91,7 @@ This will detect if a spoofing attach is done after. Notes the machine causing t
 CMD	sudo arp -a	[Show the ARP TABLES]
 
 PYTHON: sys.argv[1]
+
+MAC FLOODING
+
+rootCM		macof -i eth0 192.168.1.1

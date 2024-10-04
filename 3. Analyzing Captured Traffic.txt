@@ -81,3 +81,10 @@ carrier sense multiple access (MAC PROTOCOL) [Listens for WIFI signals and only 
 
 PHYSICAL LAYER - Responsible for converting the ones and zeros that represent data in a computer into a transmittable form. 
 (Examples of transmitting pulses of light, radio or electric signals, or sound)
+
+WIRESHARK - Important to run in root privledges so it has unrestricted access to computer's interfaces.
+
+eth0 interface (network interface)
+wlan (wifi traffic)
+Loopback: lo (Virtual network interface called the loopback interface, which redirects traffic back to the machine itself.
+

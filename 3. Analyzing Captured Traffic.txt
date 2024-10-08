@@ -88,3 +88,17 @@ eth0 interface (network interface)
 wlan (wifi traffic)
 Loopback: lo (Virtual network interface called the loopback interface, which redirects traffic back to the machine itself.
 
+ifconfig eth0 (shows the information of the eth0 interface) [Wired connection]
+
+wireshark filters
+
+ip.dst == 192.168.1.100 (Filters traffic for 192.168.1.100 in the destination field)
+
+[Protocol].[header/field] [operator: +,==,!=] [value]
+
+[Protocol] - (TCP and IP)
+[header/field] - (src or dst)
+[operator] - (+, ==, !=)
+[value] - (IP Address)
+
+Wireshark allows you to filter packets based on their content. Example filter: tcp contains login

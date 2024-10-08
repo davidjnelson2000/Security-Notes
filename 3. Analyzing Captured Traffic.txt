@@ -111,3 +111,18 @@ When looking at the traffic even just one action is split into many packets if i
 Wireshark lets you reconstruct by right clicking on the traffic and follow -> TCP Stream [This shows the HTML of the page]
 
 If you run an ARP Spoof it generates the traffic as if the victim machine created it.
+
+HTTP communication is usually on port 80
+HTTPS communication is usually on port 443
+
+Wireshark and tcpdump can analyze traffic
+
+Analyzing tcpdump:
+1. Gives a time stamp  2. Source IP address and port number  3. Destination IP and port (IP converted to domain name [tcpdum -n] makes it show IP)
+
+To capture specific packets you can capture specific protocols:
+
+tcpdump tcp port 443 -n
+
+Writing the tcpdump to a file:
+tcpdump -i <interface> -s <number of packets to capture> -w <file.pcap>

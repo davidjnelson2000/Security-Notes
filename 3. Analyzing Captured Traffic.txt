@@ -103,5 +103,11 @@ ip.dst == 192.168.1.100 (Filters traffic for 192.168.1.100 in the destination fi
 
 Wireshark allows you to filter packets based on their content. Example filter: tcp contains login
 
-Adding the conversion filter of TCP
+Adding the conversion filter of TCP:
 ip.src == 192.168.1.100 || ip.dst == 192.168.1.100
+
+When looking at the traffic even just one action is split into many packets if it is too large. The packets are then reassembled when they arrive.
+
+Wireshark lets you reconstruct by right clicking on the traffic and follow -> TCP Stream [This shows the HTML of the page]
+
+If you run an ARP Spoof it generates the traffic as if the victim machine created it.

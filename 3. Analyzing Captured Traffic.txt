@@ -126,3 +126,5 @@ tcpdump tcp port 443 -n
 
 Writing the tcpdump to a file:
 tcpdump -i <interface> -s <number of packets to capture> -w <file.pcap>
+
+https://packettotal.com will analyze these files and check for suspicious activity

@@ -94,7 +94,7 @@ wireshark filters
 
 ip addr == 192.168.1.1           (Filter by this IP)
 eth.addr eq 08:00:27:2d:f8:5a    (filter by this MAC)
-not ether host 08:00:27:2d:f8:5a (filter by not this mac)
+not eth.addr eq 08:00:27:2d:f8:5a (filter by not this mac)
 
 ip.dst == 192.168.1.100 (Filters traffic for 192.168.1.100 in the destination field)
 

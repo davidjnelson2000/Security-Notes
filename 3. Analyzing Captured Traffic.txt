@@ -92,6 +92,8 @@ ifconfig eth0 (shows the information of the eth0 interface) [Wired connection]
 
 wireshark filters
 
+ip addr == 192.168.1.1
+
 ip.dst == 192.168.1.100 (Filters traffic for 192.168.1.100 in the destination field)
 
 [Protocol].[header/field] [operator: +,==,!=] [value]

@@ -1,1 +1,12 @@
+When trying to break into a company you can use a REVERSE SHELL that allows you to remotely execute commands.
+Even after the vulnerability that let you in is fixed it allows the hacker to still have access.
 
+SOCKET Programming
+
+SOCKET is an API that allows programs to communicate over the network [TCP and UDP]
+
+TCP is used when all data needs to be sent reliably
+
+UDP is used in audio or video calls when real-time delivery is important.
+
+TCP Handshakes

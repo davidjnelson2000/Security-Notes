@@ -65,6 +65,15 @@ When running this command it doesn't establish a full connection becauase it sen
 
 Verifying with trying to connect to each port would be slow and trigger alarms with a full communication.
 
-CMD     nmap -sS 192.168.1.100      (Explicitly run a SYN Scan)
+CMD      nmap -sS 192.168.1.100      (Explicitly run a SYN Scan)
 
+Hackers can also use TCP-FIN packets to bypass firewall protections.   EXAMPLE: Port 22 may only allow outgoing packets and it would block a SYN packet request. FIN is able to monitor both incoming and outgoing.
+
+CMD      nmap -sF 192.168.1.100      (FIN scan)
+
+XMas scans which use an odd packet configuration to bypass detection and learn about the system. This scan sets the FIN, PSH, and URG flags in the TCP Packet.
+PSH and URG flags are rarely used, and systems often contain incomplete implementation of these flags.
+How a system responds to these flags can help an attacker.
+
+CMD      nmap -sX 192.168.1.100      (XMas scam)
 

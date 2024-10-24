@@ -10,3 +10,23 @@ TCP is used when all data needs to be sent reliably
 UDP is used in audio or video calls when real-time delivery is important.
 
 TCP Handshakes
+---
+-Each packet is assigned a sequence number representing its place in the transmission.
+-If a packet within the sequence is missing TCP will know it is missing and try to retransmit.
+-TCP packets have a max size of 64KB, so a file any larger is divided into several TCP Packets.
+-Sequence numbers are consecutive to allow the recipient to know the proper order, 
+however each machine starts the sequence with a random number to keep hackers from predicting the sequence.
+
+TCP Three-Way Handshake
+SYN(x) -> SYN(y) ACK(x+1) -> ACK(y+1)
+1. Sends the server a SYN packet [TCP packet with the SYN value set to true] (Contains the clients starting sequence number)
+2. One the the server receives the SYN packet it records the clients sequence number and responds by sending a SYN-ACK request. (This acknowledges what was given and sends the servers sequence number)
+3. However, the connection is not established until the server receives a follow up ACK from the client to confirm.
+4. Once the system has finished exchanging packets. They close the connection through the FIN and ACK packets
+
+TCP Allows for Full-Duplex communication which means the sender and reciever can transmit data at the same time.
+
+Half duplex can only have one party transmitting at a time.
+
+In a Full Duplex connection if one side sends a FIN packet the connection does not end until the other machine sends a FIN packet back
+

@@ -30,3 +30,23 @@ Half duplex can only have one party transmitting at a time.
 
 In a Full Duplex connection if one side sends a FIN packet the connection does not end until the other machine sends a FIN packet back
 
+TCP Reverse Shell
+
+SSH (Secure Shell) - Use sockets to connect to remote servers.
+NAT (Network Address Translation) - Router uses the IP given by the modem to connect all the devices to the router.
+
+Firewalls - These along with the NAT (routers) prevent machines outside the network form initiating connections to servers inside the network.
+However, many firewalls allow the reverse: machines inside can still connect to machines outside the network.
+
+To circumvent the firewall and NAT, hackers can install a program called a reverse chell on the compromised machine that will initiate a connection from within the network to the attackers computer outside.
+They will be able to run commands as if they are inside as the attacker.
+Many shells will mask their traffic bu using port 53 and encapsulating data in DNS packets.
+
+REVERSE SHELL - contains 2 parts: A component that connects to the attackers computer AND shell component that allows the attacker to run commands on the victim computer.
+
+https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?&page=1  [Transport Protocol Port Number Registry]
+
+Client-Server Model - Clients connect to and communicate with a dedicated server. EXAMPLE = web browser is a TCP Client that communicates with Google's TCP web server on 172.217.12.238 port 80.
+
+Peer-to-Peer - Exchange information directly with one another. 
+

@@ -22,7 +22,7 @@ SYN(x) -> SYN(y) ACK(x+1) -> ACK(y+1)
 1. Sends the server a SYN packet [TCP packet with the SYN value set to true] (Contains the clients starting sequence number)
 2. One the the server receives the SYN packet it records the clients sequence number and responds by sending a SYN-ACK request. (This acknowledges what was given and sends the servers sequence number)
 3. However, the connection is not established until the server receives a follow up ACK from the client to confirm.
-4. Once the system has finished exchanging packets. They close the connection through the FIN and ACK packets
+4. Once the systm has finished exchanging packets. They close the connection through the FIN and ACK packets
 
 TCP Allows for Full-Duplex communication which means the sender and reciever can transmit data at the same time.
 
@@ -49,4 +49,22 @@ https://www.iana.org/assignments/service-names-port-numbers/service-names-port-n
 Client-Server Model - Clients connect to and communicate with a dedicated server. EXAMPLE = web browser is a TCP Client that communicates with Google's TCP web server on 172.217.12.238 port 80.
 
 Peer-to-Peer - Exchange information directly with one another. 
+
+Scanning for Open Ports
+
+If an attacker is able to find an open port they can send malicious packets that can possibly compromise the machine.
+
+SCANNING FOR OPEN PORTS
+
+nmap - [Allows hackers to scan systems to discover open ports]
+
+CMD    nmap -sV 192.168.1.100          (sV tag enables version detection)
+This command will return the open ports, the applications running on those ports, and the version of those application.
+
+When running this command it doesn't establish a full connection becauase it sends and SYN, listens for a SYN-ACK, and then does not send the final ACK. (SYN Scan)
+
+Verifying with trying to connect to each port would be slow and trigger alarms with a full communication.
+
+CMD     nmap -sS 192.168.1.100      (Explicitly run a SYN Scan)
+
 

